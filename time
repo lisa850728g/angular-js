@@ -1,0 +1,32 @@
+<html>
+<meta charset="UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<body ng-app="dateInputExample">
+<div >
+ 
+	<form name="myForm" ng-controller="DateController as dateCtrl">
+		<input type="date" id="exampleInput" name="input" ng-model="example.value"
+			placeholder="yyyy-MM-dd" min="2016-01-01" max="2016-12-31" required />
+		<div role="alert">
+			<span class="error" ng-show="myForm.input.$error.required">
+				Required!</span>
+		<span class="error" ng-show="myForm.input.$error.date">
+			Not a valid date!</span>
+		</div>
+		<h2>{{example.value | date: "yyyy-MM-dd"}}</h2><br/>
+	</form>
+</div>
+
+<script>
+ var app =angular.module('dateInputExample', [])
+     .controller('DateController', ['$scope', function($scope) {
+       $scope.example = {
+         value: new Date(2016, 1, 11)
+       };
+     }]);
+</script>
+
+</body>
+</html>
