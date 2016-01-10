@@ -1,0 +1,17 @@
+<html>
+
+<body>
+<form name=myForm>
+<input type=text id=t1>
+<input type=button value="顯示" onclick="change();"> 
+<p id=show>把我換掉</p>
+
+<script>
+function change(){
+	show.innerHTML = document.myForm.t1.value;
+}
+</script>
+
+</body>
+
+</html>
